@@ -12,7 +12,7 @@ jobs:
           node-version: '20'
       - run: npm i -g pnpm
       - run: pnpm install
-      - run: pnpm ci
+      - run: pnpm run ci
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
