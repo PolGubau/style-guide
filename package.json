@@ -1,0 +1,84 @@
+{
+  "name": "@codedbypol/style-guide",
+  "displayName": "@codedbypol/style-guide",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Pol Gubau's engineering style guide",
+  "homepage": "https://polgubau.com",
+  "author": "Pol Gubau Amores",
+  "contributors": [
+    "Pol Gubau Amores <gubaupol@gmail.com>"
+  ],
+  "exports": {
+    "./eslint/*": "./eslint/*.js",
+    "./prettier": "./prettier/index.js",
+    "./typescript": "./typescript/tsconfig.base.json",
+    "./typescript/node16": "./typescript/tsconfig.node16.json",
+    "./typescript/node18": "./typescript/tsconfig.node18.json",
+    "./typescript/node20": "./typescript/tsconfig.node20.json"
+  },
+  "main": "index.js",
+  "files": [
+    "eslint",
+    "prettier",
+    "typescript"
+  ],
+  "scripts": {
+    "eslint-check": "eslint --max-warnings=0 .",
+    "prettier-check": "prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*": "prettier -w --ignore-unknown"
+  },
+  "prettier": "./prettier",
+  "dependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/eslint-parser": "^7.23.10",
+    "@rushstack/eslint-patch": "^1.7.2",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jest": "^27.9.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-playwright": "^1.5.2",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^6.2.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "eslint-plugin-unicorn": "^51.0.1",
+    "eslint-plugin-vitest": "^0.3.22",
+    "prettier-plugin-packagejson": "^2.4.12"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "semantic-release": "^23.0.2",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.48.0 <9",
+    "prettier": ">=3.0.0 <4",
+    "typescript": ">=4.8.0 <6"
+  },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    },
+    "prettier": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.18"
+  }
+}
