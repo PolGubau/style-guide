@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository is the home of Pol Gubau Amores' style guide, which includes configs for
+This repository is the home of my style guide, which includes configs for
 popular linting and styling tools.
 
 It's directly inspired by the [Vercel Style Guide]('https://vercel.com/design').
@@ -15,17 +15,17 @@ The following configs are available, and are designed to be used together.
 
 ## Installation
 
-All of our configs are contained in one package, `@codedByPol/style-guide`. To install:
+All of our configs are contained in one package, `pol-standard`. To install:
 
 ```sh
 # If you use npm
-npm i --save-dev @codedByPol/style-guide
+npm i --save-dev pol-standard
 
 # If you use pnpm
-pnpm i --save-dev @codedByPol/style-guide
+pnpm i --save-dev pol-standard
 
 # If you use Yarn
-yarn add --dev @codedByPol/style-guide
+yarn add --dev pol-standard
 ```
 
 Some of our ESLint configs require peer dependencies. We'll note those
@@ -42,7 +42,7 @@ To use the shared Prettier config, set the following in `package.json`.
 
 ```json
 {
-  "prettier": "@codedByPol/style-guide/prettier"
+  "prettier": "pol-standard/prettier"
 }
 ```
 
@@ -58,21 +58,21 @@ This ESLint config is designed to be composable.
 The following base configs are available. You can use one or both of these
 configs, but they should always be first in `extends`:
 
-- `@codedByPol/style-guide/eslint/browser`
-- `@codedByPol/style-guide/eslint/node`
+- `pol-standard/eslint/browser`
+- `pol-standard/eslint/node`
 
 Note that you can scope configs, so that configs only target specific files.
 For more information, see: [Scoped configuration with `overrides`](#scoped-configuration-with-overrides).
 
 The following additional configs are available:
 
-- `@codedByPol/style-guide/eslint/jest`
-- `@codedByPol/style-guide/eslint/jest-react` (includes rules for `@testing-library/react`)
-- `@codedByPol/style-guide/eslint/next` (requires `@next/eslint-plugin-next` to be installed at the same version as `next`)
-- `@codedByPol/style-guide/eslint/playwright-test`
-- `@codedByPol/style-guide/eslint/react`
-- `@codedByPol/style-guide/eslint/typescript` (requires `typescript` to be installed and [additional configuration](#configuring-eslint-for-typescript))
-- `@codedByPol/style-guide/eslint/vitest`
+- `pol-standard/eslint/jest`
+- `pol-standard/eslint/jest-react` (includes rules for `@testing-library/react`)
+- `pol-standard/eslint/next` (requires `@next/eslint-plugin-next` to be installed at the same version as `next`)
+- `pol-standard/eslint/playwright-test`
+- `pol-standard/eslint/react`
+- `pol-standard/eslint/typescript` (requires `typescript` to be installed and [additional configuration](#configuring-eslint-for-typescript))
+- `pol-standard/eslint/vitest`
 
 > You'll need to use `require.resolve` to provide ESLint with absolute paths,
 > due to an issue around ESLint config resolution (see
@@ -85,18 +85,18 @@ following in `.eslintrc.js`.
 // Standard eslint config for next.js projects
 module.exports = {
   extends: [
-    require.resolve('@codedByPol/style-guide/eslint/browser'),
-    require.resolve('@codedByPol/style-guide/eslint/react'),
-    require.resolve('@codedByPol/style-guide/eslint/typescript'),
+    require.resolve('pol-standard/eslint/browser'),
+    require.resolve('pol-standard/eslint/react'),
+    require.resolve('pol-standard/eslint/typescript'),
   ],
   overrides: [
     {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
       extends: [
-        require.resolve('@codedByPol/style-guide/eslint/jest'),
-        require.resolve('@codedByPol/style-guide/eslint/jest-react'),
+        require.resolve('pol-standard/eslint/jest'),
+        require.resolve('pol-standard/eslint/jest-react'),
         // or if you use Vitest:
-        require.resolve('@codedByPol/style-guide/eslint/vitest'),
+        require.resolve('pol-standard/eslint/vitest'),
       ],
     },
   ],
@@ -109,9 +109,9 @@ Or for Next.js projects with TypeScript, set the following in `.eslintrc.js`.
 // Standard eslint config for next.js projects
 module.exports = {
   extends: [
-    require.resolve('@codedByPol/style-guide/eslint/browser'),
-    require.resolve('@codedByPol/style-guide/eslint/react'),
-    require.resolve('@codedByPol/style-guide/eslint/next'),
+    require.resolve('pol-standard/eslint/browser'),
+    require.resolve('pol-standard/eslint/react'),
+    require.resolve('pol-standard/eslint/next'),
   ],
 };
 ```
@@ -131,11 +131,11 @@ const project = resolve(__dirname, 'tsconfig.json');
 module.exports = {
   root: true,
   extends: [
-    require.resolve('@codedByPol/style-guide/eslint/node'),
-    require.resolve('@codedByPol/style-guide/eslint/react'),
-    require.resolve('@codedByPol/style-guide/eslint/typescript'),
-    require.resolve('@codedByPol/style-guide/eslint/browser'),
-    require.resolve('@codedByPol/style-guide/eslint/vitest'),
+    require.resolve('pol-standard/eslint/node'),
+    require.resolve('pol-standard/eslint/react'),
+    require.resolve('pol-standard/eslint/typescript'),
+    require.resolve('pol-standard/eslint/browser'),
+    require.resolve('pol-standard/eslint/vitest'),
     // ... other configs
   ],
   parserOptions: {
@@ -162,7 +162,7 @@ The below list is not exhaustive.
 ```js
 module.exports = {
   root: true,
-  extends: [require.resolve('@codedByPol/style-guide/eslint/react')],
+  extends: [require.resolve('pol-standard/eslint/react')],
   settings: {
     'jsx-a11y': {
       components: {
@@ -188,11 +188,11 @@ default test match pattern.
 
 ```js
 module.exports = {
-  extends: [require.resolve('@codedByPol/style-guide/eslint/node')],
+  extends: [require.resolve('pol-standard/eslint/node')],
   overrides: [
     {
       files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
-      extends: [require.resolve('@codedByPol/style-guide/eslint/jest')],
+      extends: [require.resolve('pol-standard/eslint/jest')],
     },
   ],
 };
@@ -220,16 +220,16 @@ This style guide provides multiple TypeScript configs. These configs correlate t
 
 Node.js Version
 
-v16 : `@codedByPol/style-guide/typescript/node16`
-v18 : `@codedByPol/style-guide/typescript/node18`
-v20 : `@codedByPol/style-guide/typescript/node20`
+v16 : `pol-standard/typescript/node16`
+v18 : `pol-standard/typescript/node18`
+v20 : `pol-standard/typescript/node20`
 
 To use the shared TypeScript config, set the following in `tsconfig.json`.
 
 ```json
 {
-  "extends": "@codedByPol/style-guide/typescript/node16"
+  "extends": "pol-standard/typescript/node16"
 }
 ```
 
-The base TypeScript config is also available as [`@codedByPol/style-guide/typescript`](./typescript/tsconfig.base.json) which only specifies a set of general rules. You should inherit from this file when setting custom `lib`, `module`, `target`, and `moduleResolution` settings.
+The base TypeScript config is also available as [`pol-standard/typescript`](./typescript/tsconfig.base.json) which only specifies a set of general rules. You should inherit from this file when setting custom `lib`, `module`, `target`, and `moduleResolution` settings.

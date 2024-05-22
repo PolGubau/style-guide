@@ -1,9 +1,9 @@
 {
-  "name": "@codedbypol/style-guide",
-  "displayName": "@codedbypol/style-guide",
+  "name": "pol-standard",
+  "displayName": "pol-standard",
   "version": "0.0.1",
   "private": false,
-  "description": "Pol Gubau's engineering style guide",
+  "description": "Pol Gubau's projects engineering style guide",
   "homepage": "https://polgubau.com",
   "author": "Pol Gubau Amores",
   "contributors": [
