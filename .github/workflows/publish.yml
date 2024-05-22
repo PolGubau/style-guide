@@ -10,7 +10,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20'
-      - run: npm run ci
+      - run: npm i -g pnpm
+      - run: pnpm install
+      - run: pnpm ci
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
